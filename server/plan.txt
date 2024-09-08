@@ -1,0 +1,2 @@
+itterrate through all my users in the db, and fetch their data, and update their databases
+do we want new tables for everyone
