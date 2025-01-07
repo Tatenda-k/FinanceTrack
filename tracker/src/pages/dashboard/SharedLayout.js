@@ -4,14 +4,19 @@ import TopBar from '../../components/TopBar'
 
 const SharedLayout = () =>{
     return(
-            <main className ='dashboard'>
-                
-                <SideBar/>
-                <div>
+            <main >
+                <div  className = {`flex`}>
+
+                <div  className = {`w-[150px]`} >
+                <SideBar  />
+                </div>
+                <div className = {`flex-1`}>
+                    <div className = {`flex flex-col`}>
                     <TopBar/>
-                    <div className='dashboard-page'>
-                        <Outlet/>
+                    <Outlet/>
                     </div>
+                   
+                </div>
                 </div>
                    
             </main>
