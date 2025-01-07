@@ -55,7 +55,8 @@ app.use(errorHandlerMiddleware)
 
 // Account filtering isn't required here, but sometimes 
 // it's helpful to see an example. 
-
+// console.log(process.env.MONGO_URI);
+// console.log("one");
 
 const start = async()=>{
   try{

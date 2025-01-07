@@ -26,7 +26,9 @@ export const registerUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
     'user/loginUser',
     async (user,thunkAPI)=>{
-        return loginUserThunk('/api/v1/auth/login',user,thunkAPI)
+        const response = loginUserThunk('/api/v1/auth/login',user,thunkAPI)
+        
+        return response;
 
     }
 )
@@ -92,10 +94,16 @@ const usersSlice = createSlice({
             .addCase(loginUser.fulfilled,(state, {payload})=>{
                 const {user} = payload;
                 state.isLoading = false;
-                state.user = user;
+                state.user = user;               
+                if(user == null){
+                    toast.error('payload');
+                    state.isLoading = false;
+                }
+                else{
                 addUserToLocalStorage(user);
                 toast.success(`Hi ${user.username}, Welcome Back!`)
                 state.isLoading = true
+                }
             })
             .addCase(loginUser.rejected,(state, {payload})=>{
                 state.isLoading = false;

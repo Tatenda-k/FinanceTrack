@@ -12,7 +12,7 @@ const initialState = {
     username: '',
     password: '',
     email: '',
-    isMember: true
+    isMember: false,
 }
 const Register =() =>{
     const [person,setPerson] = useState(initialState)
@@ -34,10 +34,12 @@ const Register =() =>{
             return
         }
         if(isMember){
+            console.log(person);
             dispatch(loginUser({ email : email, password : password}))
             return
         }
         dispatch(registerUser({ email : email, password: password, username: name}))
+        console.log("after dispatching");
     }
     const toggleMember = () =>{
         setPerson({...person,isMember : !person.isMember})

@@ -44,14 +44,19 @@ const login = async (req,res) =>{
     if(!email ||!password){
         res.json('Please provide email and password')
     }
+    
+    const users = await User.find();  // Retrieve all users
+    console.log(users);  
+
     const user = await User.findOne({email : email})
+    console.log(user,email);
     
     if(!user){
-        res.json("Invalid credentials")
+        return res.json("Invalid credentials")
     }
     const compare = user.comparePassword(password)
     if(!compare){
-        res.json('Invalid credentials')
+        return res.json('Invalid credentials')
     }
     //custom errors, and cookies
     const token = user.createJWT()

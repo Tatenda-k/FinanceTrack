@@ -12,15 +12,17 @@ export const addUserToLocalStorage = (user) => {
   export const getUserFromLocalStorage = () => {
     const result = localStorage.getItem('user');
     console.log('getting user from local storage')
-    console.log(result);
-    let user = null
-    if(result){
-     
-      user=  JSON.parse(result)
-
-      return user
+    console.log(typeof(result));
+    if(result && result !== "undefined"){
+     try{
+      let user=  JSON.parse(result)
+      console.log("result was defined");
+      return user}
+      catch(error){
+        console.log("Error parsing user data from local storage ");
+      }
     }
   
-
-    return user;
+    console.log("here no user");
+    return null;
   };
