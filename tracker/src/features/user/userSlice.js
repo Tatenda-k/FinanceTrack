@@ -57,7 +57,7 @@ const usersSlice = createSlice({
             console.log('logging out user')
             state.user = null
             state.isSideBarOpen = false;
-            removeUserFromLocalStorage()
+            removeUserFromLocalStorage();
             
 
         }

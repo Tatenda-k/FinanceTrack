@@ -15,7 +15,7 @@ const TopBar =  () =>{
 
        
 
-            <div className = 'flex justify-between  items-center  shadow-bottom' >
+            <div className = 'flex justify-between items-center  shadow-bottom' >
                 <button type='button' className = 'toggle-btn' onClickCapture={()=>
                 console.log('toggle sidebar')}>
                     <FaAlignLeft className="mx-2" />

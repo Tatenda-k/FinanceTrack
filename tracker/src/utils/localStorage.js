@@ -4,7 +4,7 @@ export const addUserToLocalStorage = (user) => {
 }
   
   export const removeUserFromLocalStorage = () => {
-    console.log('need to add logic or make protected rounte')
+    console.log('need to add logic or make protected roune')
     localStorage.removeItem('user');
   };
 

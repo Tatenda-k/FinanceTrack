@@ -1,0 +1,89 @@
+/* Container to handle responsiveness */
+.table-container {
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+/* Table styles */
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    border: 2px solid #A54ABE;
+}
+
+/* Header styles */
+.transaction-table thead {
+    background-color: #f7f7f7;
+}
+
+.transaction-table th {
+    border: 1px solid #A54ABE;
+    text-align: left;
+    padding: 0.5rem;
+}
+
+/* Row styles */
+.transaction-table tr {
+    transition: background-color 0.2s ease;
+}
+
+.transaction-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.transaction-table tr:hover {
+    background-color: #eaeaea;
+}
+
+/* Cell styles */
+.transaction-table td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+}
+
+button {
+    /* Basic styling */
+    padding: 0.3rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    /* Text color */
+    background-color: #50BEC3;
+    /* Blue background */
+    border: none;
+    /* Remove default borders */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+button:hover {
+    background-color: #0056b3;
+    /* Darker blue */
+    transform: scale(1.05);
+    /* Slight zoom */
+}
+
+/* Active button effect */
+button:active {
+    background-color: #003f7f;
+    /* Even darker blue */
+    transform: scale(0.98);
+    /* Slight press-in effect */
+}
+
+/* Disabled button */
+button:disabled {
+    background-color: #cccccc;
+    /* Gray background */
+    color: #666666;
+    /* Dark gray text */
+    cursor: not-allowed;
+    /* Disabled cursor */
+    opacity: 0.7;
+    /* Slightly faded */
+}

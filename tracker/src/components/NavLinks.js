@@ -13,7 +13,7 @@ const NavLinks = () => {
     
     console.log(links)
     return(
-        <div className ='nav-links'>
+        <div className ={` p-2 py-2 shadow-right px-4`}>
             {links.map((link,index) =>{
                 const {text,path,id,icon} = link
                 return(

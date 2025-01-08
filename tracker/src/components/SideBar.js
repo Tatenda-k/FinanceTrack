@@ -16,9 +16,7 @@ const SideBar = () =>{
             : 'sidebar-container show-sidebar'
         }>
         <div className='content'>
-            <header>
-                <Logo/>
-            </header>
+            
             <NavLinks/>
         </div>
            

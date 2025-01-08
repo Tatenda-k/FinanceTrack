@@ -8,10 +8,10 @@ const initialState = {
     totalTransactions : 0,
     numOfPages : 1,
     page : 1,
-    transactionYears : Number(new Date().getFullYear()),
+    transactionYears : Number(new Date().getFullYear())-1,
     pieChartData:[],
     threeMonthStats :[],
-    pieYear : Number(new Date().getFullYear()),
+    pieYear : Number(new Date().getFullYear())-1,
     pieMonth : Number(new Date().getMonth())
 
 }
@@ -21,7 +21,8 @@ export const getTransactions = createAsyncThunk(
     async(_,thunkAPI) =>{
         const state = thunkAPI.getState();
         const user = state.user
-        return getAllTransactionsThunk('/db/transactions',user,thunkAPI)
+        const x =  getAllTransactionsThunk('/db/transactions',user,thunkAPI)
+        return x;
     }
 )
 
@@ -67,7 +68,7 @@ const transactionsSlice = createSlice({
             })
 
             .addCase(getTransactions.fulfilled,(state,{payload}) =>{
-                // console.log('here transactions')
+                 console.log('here transactions',payload);
                 state.isLoading = false;
                 state.transactions = payload.transactions;
                 state.numOfPages = payload.numOfPages;

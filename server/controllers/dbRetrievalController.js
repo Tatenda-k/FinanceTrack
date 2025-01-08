@@ -26,6 +26,7 @@ const getAccounts = async (req,res) => {
 }
 
 const getTransactions = async (req,res) =>{
+    console.log("getting transactions ***********************************")
     const {username, transactionYear, bug} = req.body
     const user = await User.findOne({username : username})
     const page = Number(req.body.page) ||1;
@@ -33,7 +34,7 @@ const getTransactions = async (req,res) =>{
 
     try{
         //add transactions.year
-
+        console.log(transactionYear);
         const query = {user_id: user._id, year: transactionYear }
         const transactionsCount = await Transaction.countDocuments(query)
 

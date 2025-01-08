@@ -5,9 +5,8 @@ export const getAllTransactionsThunk = async(url,user,thunkAPI)=>{
     try{
 
         const {page, transactionYears} = thunkAPI.getState().transactions
-        
         const res = await axios.post("/api/v1/db/transactions",{username: user.user.username, page : page, transactionYear : transactionYears})
-        console.log(res.data)
+        // console.log(res.data,"in gettransactionthunk");
         return res.data;
 
     }
@@ -19,13 +18,14 @@ export const getAllTransactionsThunk = async(url,user,thunkAPI)=>{
 
 export const getPieChartDataThunk = async(url, thunkAPI) =>{
     try{
+        
         const {pieYear, pieMonth} = thunkAPI.getState().transactions
         const {user} = thunkAPI.getState().user
 
        
       
 
-
+        console.log("about to get piechart data");
         const res = await axios.post("/api/v1/db/pieData", {username: user.username, pieYear, pieMonth})
         //itterrate over the array.
         //for every itterration, access index 1 and index 3 and append them to the new array
@@ -34,7 +34,7 @@ export const getPieChartDataThunk = async(url, thunkAPI) =>{
             pieChartData.push([res.data.results[i]._id,Math.abs( res.data.results[i].total_expenditure)])
 
          }
-        //  console.log(pieChartData[0],"data")
+         console.log(pieChartData[0],"pie data")
 
         return pieChartData
 
