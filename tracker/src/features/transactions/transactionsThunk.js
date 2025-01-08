@@ -34,7 +34,8 @@ export const getPieChartDataThunk = async(url, thunkAPI) =>{
             pieChartData.push([res.data.results[i]._id,Math.abs( res.data.results[i].total_expenditure)])
 
          }
-         console.log(pieChartData[0],"pie data")
+         console.log(res,"raw piechart data");
+         console.log(pieChartData,"pie data in thunk");
 
         return pieChartData
 

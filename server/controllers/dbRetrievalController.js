@@ -67,15 +67,15 @@ const getSpendingYearMonth = async ( req,res)=>{
     let monthIndex = months.findIndex( m => m === pieMonth)
 
     const user = await User.findOne({username : username})
-        // console.log(pieMonth,'month')
+    console.log("here in spending",user,user._id,"user",pieMonth,pieYear);
     try{
     
     const results = await Transaction.aggregate([
         {
             $match:{ 
                 user_id : user._id,
-                month : pieMonth,
-                year : Number(pieYear)
+                // month : pieMonth,
+                // year : Number(pieYear)-1
 
             }
         },
@@ -89,14 +89,14 @@ const getSpendingYearMonth = async ( req,res)=>{
             }
         }
     ])
-    // console.log(results)
-    res.json({results})
+    console.log(results,"results from controller db retrieval");
+    return res.json({results})
         
     }
         
     catch(error)
     {
-        res.status(500).send('failed to retrieve spending aggregations')
+        return res.status(500).send('failed to retrieve spending aggregations')
     }
 
 
@@ -122,15 +122,10 @@ const getSpendingThreeMonths = async ( req,res)=>{
             $match:{
                  user_id : user._id, 
                   month : {$in : nextThreeMonths},
-                  year : Number(year)       
+                  year : Number(year) -1      
             }
         },
-        // {
-        //     $match : { month : monthIndex}
-        // },
-        // {
-        //     $match: { year : Number(year)}
-        // },
+       
         {
             $group : 
             {
@@ -142,8 +137,8 @@ const getSpendingThreeMonths = async ( req,res)=>{
             }
         }
     ])
-    console.log(results)
-    res.json({results})
+    console.log(results, "res")
+    return res.json({results})
         
     }
         
@@ -156,6 +151,7 @@ const getSpendingThreeMonths = async ( req,res)=>{
 
 
 }
+
 
 
 module.exports = {getAccounts, getTransactions, getSpendingThreeMonths, getSpendingYearMonth}

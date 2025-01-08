@@ -30,8 +30,8 @@ const Transactions = () =>{
     return (
         <div>
             <div className = 'table-container'>
-                <button disabled = {transactionYears ==date-1} onClick={()=> dispatch(changeTransactionYear(date-1))}>{date-1}</button>
-                <button disabled = {transactionYears ==date} onClick = {()=> dispatch(changeTransactionYear(date))}>{date}</button>
+                <button disabled = {transactionYears ===date-1} onClick={()=> dispatch(changeTransactionYear(date-1))}>{date-1}</button>
+                <button disabled = {transactionYears ===date} onClick = {()=> dispatch(changeTransactionYear(date))}>{date}</button>
             </div>
             <table className = "transaction-table">
                 <thead>

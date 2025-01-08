@@ -21,7 +21,9 @@ const SpendingPieChart = () => {
 
   useEffect(()=>{
    // dispatch(getTransactions())
-    dispatch(getPieChartData())
+    dispatch(getPieChartData());
+    console.log(pieChartData, "pie chart data in screen");
+
   },[])
 
   const options = {

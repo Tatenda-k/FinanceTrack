@@ -84,8 +84,9 @@ const transactionsSlice = createSlice({
 
             .addCase(getPieChartData.fulfilled,(state,{payload}) =>{
                 state.isLoading = false;
+                console.log("payload",payload);
                 state.pieChartData = payload
-                console.log(state.pieChartData)
+                console.log(state.pieChartData,"got data in slice");
             }) 
             .addCase(getPieChartData.rejected,(state,action)=>{
                 state.isLoading = false;
